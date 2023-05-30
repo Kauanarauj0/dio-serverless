@@ -1,36 +1,24 @@
-<!--
-title: 'AWS Simple HTTP Endpoint example in NodeJS'
-description: 'This template demonstrates how to make a simple REST API with Node.js running on AWS Lambda and API Gateway using the traditional Serverless Framework.'
-layout: Doc
-framework: v2
-platform: AWS
-language: nodeJS
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
-
 # API Node.js com Serverless Framework em ambiente AWS
 
-Este repositório contém o código fonte do Live Coding da DIO no dia 29/07/2021. Neste projeto vamos criar uma infraestrutra em nuvem AWS com API Gateway, DynamoDB, AWS Lambda e AWS CloudFormation utilizando o framework Serverless para o desenvolvimento baseada em Infraestrutura as a Code.
+Neste projeto deixei o roteiro utilizado para a criação de uma infraestrutra em nuvem AWS com API Gateway, DynamoDB, AWS Lambda e AWS CloudFormation utilizando o framework Serverless para o desenvolvimento baseada em Infraestrutura as a Code.
 
-## Etapas
+## 📚 Etapas
 
-Pré requisitos: 
+ Pré requisitos: 
  - possuir uma conta na AWS e instalar Node.js na máquina.
  - Instalar o AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 
 ### Setup Inicial
 
-#### Credenciais AWS
+#### 🗃️ Credenciais AWS
 
 - Criar usuário: AWS Management Console -> IAM Dashboard -> Create New User -> <nome do usuário> -> Permissions "Administrator Access" -> Programmatic Access -> Dowload Keys
 - No terminal: ```$ aws configure``` -> colar as credenciais geradas anteriormente
-- 
-#### Configurar o framework Serverless
+
+#### 🛠️ Configurar o framework Serverless
 ```$ npm i -g serverless```
 
-### Desenvolvimento do projeto
+#### 👨‍💻 Desenvolvimento do projeto
  
 ```
 $ serverless
@@ -46,7 +34,7 @@ $ code .
 - No arquivo ```serverless.yml``` adicionar a região ```region: us-east-1``` dentro do escopo de ```provider:```
 - Salvar e realizar o deploy ```$ serverless deploy -v```
 
-#### Estruturar o código
+#### 🧱 Estruturar o código
 
 - Criar o diretório "src" e mover o arquivo "handler.js" para dentro dele
 - Renomear o arquivo "handler.js" para "hello.js"
@@ -64,7 +52,7 @@ handler: src/hello.handler
 ```
 ```$ serverless deploy -v ```
 
-#### DynamoDB
+##### DynamoDB
 Atualizar o arquivo serverless.yml
 ```
 resources:
@@ -81,7 +69,7 @@ resources:
             - AttributeName: id
               KeyType: HASH
 ```
-#### Desenvolver funções lambda
+##### Desenvolver funções lambda
 
 	- Pasta /src do repositório
  	- Obter arn da tabela no DynamoDB AWS Console -> DynamoDB -> Overview -> Amazon Resource Name (ARN)
@@ -139,5 +127,10 @@ resources:
           path: /items/{id}
           method: put
   ```
+## 📈 Considerações Finais
+Realizar esta atividade de dar os primeiros passos na Nuvem da AWS utilizando os conceitos de Serverless e Infraestrutura como Código (IaC) foi uma experiência extremamente enriquecedora. Ao longo do processo, pude aprender sobre as vantagens do serverless e da infraestrutura como código, além de ganhar familiaridade com o Serverless Framework.
 
+O Serverless Framework se mostrou uma ferramenta poderosa, simplificando todo o processo de criação, implantação e gerenciamento de aplicações serverless na AWS. Com ele, pude me concentrar no desenvolvimento do código e nas funcionalidades da minha aplicação, deixando a infraestrutura em segundo plano.
+
+Replicar a solução proposta pelo especialista me permitiu compreender na prática como os conceitos apresentados funcionam. Através do Serverless Framework, fui capaz de criar e implantar minha aplicação serverless de forma rápida e eficiente. O uso de infraestrutura como código também trouxe uma abordagem declarativa e versionável para gerenciar toda a infraestrutura necessária.
 
